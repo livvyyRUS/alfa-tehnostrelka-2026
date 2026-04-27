@@ -10,5 +10,3 @@ for prompt_file in os.listdir("promts"):
     with open(path, "r", encoding="utf8") as file:
         prompt = file.read()
         system_messages[path.stem] = prompt
-
-print(system_messages.get("code_gen"))
