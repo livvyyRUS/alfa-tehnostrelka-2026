@@ -1,5 +1,6 @@
 from langchain.tools import tool
 
+
 @tool
 def write_file(path: str, data: str) -> str:
     """

@@ -1,5 +1,6 @@
 from langchain.tools import tool
 
+
 @tool
 def read_file(path: str) -> str:
     """

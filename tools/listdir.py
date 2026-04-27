@@ -1,6 +1,7 @@
 import os
 from langchain.tools import tool
 
+
 @tool
 def listdir(path: str) -> str:
     """
@@ -15,3 +16,4 @@ def listdir(path: str) -> str:
         A comma-separated string of file and directory names.
     """
     return ",".join(os.listdir(path))
+
