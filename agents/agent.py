@@ -11,7 +11,7 @@ class Agent():
             tools=tools
         )
 
-    def run_agent(self, user_input: str):
+    def run_agent(self, user_input: str = ""):
         result = self.agent.invoke({
             "messages": [
                 {

@@ -1,5 +1,8 @@
-# from agents import use_cases_agent
+from agents import docs_agent, tests_agent, code_gen_agent, func_req_agent, use_cases_agent, non_func_req_agent
 
-# if __name__ == "__main__":
-#     print(use_cases_agent.run_agent("Тест"))
-import agents.system_messages
+use_cases_agent.run_agent()
+non_func_req_agent.run_agent()
+func_req_agent.run_agent()
+code_gen_agent.run_agent()
+tests_agent.run_agent()
+docs_agent.run_agent()
