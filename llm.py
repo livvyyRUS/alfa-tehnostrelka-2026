@@ -12,5 +12,5 @@ llm = ChatOpenAI(
     base_url="https://openrouter.ai/api/v1"
 )
 
-# response = llm.invoke([HumanMessage(content="Hello, how are you?")])
-# print(response.content)
+response = llm.invoke([HumanMessage(content="Hello, how are you?")])
+print(response.content)
