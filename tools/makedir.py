@@ -1,4 +1,4 @@
-import os
+from pathlib import Path
 from langchain.tools import tool
 
 
@@ -15,5 +15,8 @@ def makedir(path: str) -> str:
     Returns:
         "ok" if the directory was successfully created.
     """
-    os.mkdir(path)
+    _path = Path(path)
+    if _path.exists():
+        return "already exists"
+    _path.mkdir()
     return "ok"

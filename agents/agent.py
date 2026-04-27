@@ -3,8 +3,9 @@ from llm import llm
 from tools import tools
 
 class Agent():
-    def __init__(self, system_message: str):
+    def __init__(self, system_message: str, name: str):
         self.system_message = system_message
+        self.name = name
         
         self.agent = create_agent(
             model=llm,
@@ -24,5 +25,8 @@ class Agent():
                 }
             ]
         })
-
-        return result["messages"][-1].content
+        answer = result["messages"][-1].content
+        
+        print(f'Шаг "{self.name}" успешно выполнен')
+        
+        return answer

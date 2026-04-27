@@ -15,5 +15,7 @@ def listdir(path: str) -> str:
     Returns:
         A comma-separated string of file and directory names.
     """
+    if not os.path.exists(path):
+        return "Not exists"
     return ",".join(os.listdir(path))
 
