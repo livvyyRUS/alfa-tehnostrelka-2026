@@ -1,6 +1,5 @@
-def main():
-    print("Hello from alfa-tehnostrelka-2026!")
+from agents.use_cases import run_agent
 
 
 if __name__ == "__main__":
-    main()
+    print(run_agent("Тест"))
