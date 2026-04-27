@@ -16,9 +16,24 @@ func_req_agent = Agent(
     name="Функциональные требования (ФТ)"
 )
 
+architecture_agent = Agent(
+    system_message=str(system_messages.get("architecture")), 
+    name="Архитектура и разбиение на модули"
+)
+
+file_manifest_agent = Agent(
+    system_message=str(system_messages.get("file_manifest")), 
+    name="Файловая структура"
+)
+
 code_gen_agent = Agent(
     system_message=str(system_messages.get("code_gen")), 
     name="Исходный код приложения"
+)
+
+static_analysis_report_agent = Agent(
+    system_message=str(system_messages.get("static-analysis-report")), 
+    name="Статический анализ и автоисправление"
 )
 
 tests_agent = Agent(
