@@ -34,7 +34,7 @@ uv sync
 Создайте файл `.env` в корневой директории проекта и добавьте туда ваш ключ OpenRouter и базовую модель:
 
 ```
-OPENROUTER_API_KEY=your_openrouter_api_key_here
+API_KEY=your_openrouter_api_key_here
 DEFAULT_MODEL=your_model
 ```
 
