@@ -31,6 +31,11 @@ tests_agent = Agent(
     name="Тесты (unit / e2e)"
 )
 
+tester_agent = Agent(
+    system_message=str(system_messages.get("tester")),
+    name="Запуск тестов"
+)
+
 docs_agent = Agent(
     system_message=str(system_messages.get("docs")), 
     name="Документация"
