@@ -9,7 +9,7 @@ class Agent():
     def __init__(self, system_message: str, name: str, llm_name: str = "qwen/qwen3.6-flash"):
         self.system_message = system_message
         self.name = name
-        
+
         self.llm = ChatOpenAI(
             model=llm_name,   # или "gpt-3.5-turbo"
             temperature=0.8,
@@ -17,7 +17,7 @@ class Agent():
             base_url="https://openrouter.ai/api/v1"
         )
 
-        
+
         self.agent = create_agent(
             model=self.llm,
             tools=tools
@@ -31,13 +31,13 @@ class Agent():
                 "content": self.system_message
                 },
                 {
-                    "role": "user", 
+                    "role": "user",
                     "content": user_input
                 }
             ]
         })
         answer = result["messages"][-1].content
-        
+
         print(f'Шаг "{self.name}" успешно выполнен')
-        
+
         return answer

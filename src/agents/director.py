@@ -187,6 +187,7 @@ class Agent():
         return answer
 
 director_agent = Agent(
-    system_message=str(system_messages.get("director")), 
-    name="Дирижёр"
+    system_message=str(system_messages.get("director")),
+    name="Дирижёр",
+    llm_name=os.getenv("DIRECTOR_MODEL", os.getenv("DEFAULT_MODEL"))
 )
