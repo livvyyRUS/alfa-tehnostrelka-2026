@@ -74,3 +74,6 @@ uv run --env-file ".env" .\main.py
 - **Tests Agent** (`tests.md`) - Создает тесты и тестовые сценарии
 - **Tester Agent** (`tester.md`) -Тестирует программу
 - **Documentation Agent** (`docs.md`) - Генерирует README, техническую документацию и комментарии
+
+
+Команда: The Teapots (418)
