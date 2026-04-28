@@ -162,7 +162,7 @@ class Agent():
         
         self.agent = create_agent(
             model=self.llm,
-            tools=tools
+            tools=self.tools
         )
 
     def run_agent(self, user_input: str = ""):
@@ -182,9 +182,11 @@ class Agent():
         
         print(f'Шаг "{self.name}" успешно выполнен')
         
+        print(answer)
+        
         return answer
 
 director_agent = Agent(
-    system_message=str(system_messages.get("docs")), 
-    name="Документация"
+    system_message=str(system_messages.get("director")), 
+    name="Дирижёр"
 )
