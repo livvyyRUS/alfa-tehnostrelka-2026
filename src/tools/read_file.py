@@ -1,6 +1,5 @@
 import os
 from langchain.tools import tool
-from .security import check_path
 
 @tool
 def read_file(path: str) -> str:
@@ -17,21 +16,17 @@ def read_file(path: str) -> str:
         The full content of the file as a string,
         or an error message starting with "Error: ".
     """
+    if not os.path.exists(path):
+        return "Error: File does not exist"
+    if os.path.isdir(path):
+        return f"Error: '{path}' is a directory, not a file"
     try:
-        safe_path = check_path(path)
-
-        if not os.path.exists(safe_path):
-            return "Error: File does not exist"
-        if os.path.isdir(safe_path):
-            return f"Error: '{path}' is a directory, not a file"
-
-        with open(safe_path, "r", encoding="utf-8") as file:
+        with open(path, "r", encoding="utf-8") as file:
             data = file.read()
         return data
-
-    except PermissionError as e:
-        return f"Error: {e}"
     except UnicodeDecodeError:
         return f"Error: File '{path}' is not a valid UTF-8 text file"
+    except PermissionError:
+        return f"Error: Permission denied to read file '{path}'"
     except OSError as e:
         return f"Error: {e}"

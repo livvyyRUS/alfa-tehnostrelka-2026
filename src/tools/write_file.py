@@ -1,6 +1,5 @@
 import os
 from langchain.tools import tool
-from .security import check_path
 
 @tool
 def write_file(path: str, data: str) -> str:
@@ -19,17 +18,13 @@ def write_file(path: str, data: str) -> str:
         or an error message starting with "Error: ".
     """
     try:
-        safe_path = check_path(path)
-
         # Проверим, не пытаемся ли мы писать в директорию
-        if os.path.exists(safe_path) and os.path.isdir(safe_path):
+        if os.path.exists(path) and os.path.isdir(path):
             return f"Error: '{path}' is a directory, cannot write as a file"
-
-        with open(safe_path, "w", encoding="utf-8") as file:
+        with open(path, "w", encoding="utf-8") as file:
             file.write(data)
         return "ok"
-
-    except PermissionError as e:
-        return f"Error: {e}"
+    except PermissionError:
+        return f"Error: Permission denied to write file '{path}'"
     except OSError as e:
         return f"Error: {e}"

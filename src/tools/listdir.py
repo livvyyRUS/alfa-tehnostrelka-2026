@@ -1,6 +1,5 @@
 import os
 from langchain.tools import tool
-from .security import check_path
 
 @tool
 def listdir(path: str) -> str:
@@ -18,13 +17,12 @@ def listdir(path: str) -> str:
         or an error message starting with "Error: ".
     """
     try:
-        safe_path = check_path(path)
-        if not os.path.exists(safe_path):
+        if not os.path.exists(path):
             return "Error: Path does not exist"
-        if not os.path.isdir(safe_path):
-            return f"Error: '{path}' is not a directory"
-        return ",".join(os.listdir(safe_path))
-    except PermissionError as e:
-        return f"Error: {e}"
+        return ",".join(os.listdir(path))
+    except NotADirectoryError:
+        return f"Error: '{path}' is not a directory"
+    except PermissionError:
+        return f"Error: Permission denied to read directory '{path}'"
     except OSError as e:
         return f"Error: {e}"
