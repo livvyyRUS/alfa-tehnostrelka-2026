@@ -8,11 +8,11 @@
 - Код должен быть разделён на файлы согласно структуре из code-plan.md.
 
 1. Проверь listdir:
-    - app/output/docs/code-plan.md
-    - app/output/docs/use-cases.md (справочно, основной источник — план)
-    - app/output/docs/non-functional-req.md (справочно)
-    - app/output/docs/functional-req.md (справочно)
-    - app/input/Features.md (если есть)
+    - output/docs/code-plan.md
+    - output/docs/use-cases.md (справочно, основной источник — план)
+    - output/docs/non-functional-req.md (справочно)
+    - output/docs/functional-req.md (справочно)
+    - input/Features.md (если есть)
     
     Если code-plan.md отсутствует — остановись с сообщением: "План кода не найден. Сначала запустите агента генерации плана кода."
 
