@@ -16,6 +16,11 @@ func_req_agent = Agent(
     name="Функциональные требования (ФТ)"
 )
 
+gen_app_plan_agent = Agent(
+    system_message=str(system_messages.get("gen_app_plan")), 
+    name="Генерация плана кода"
+)
+
 code_gen_agent = Agent(
     system_message=str(system_messages.get("code_gen")), 
     name="Исходный код приложения"
